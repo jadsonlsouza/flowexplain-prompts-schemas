@@ -1,10 +1,9 @@
 # Question Dataset
 
-This directory contains a read-only snapshot exported from the FlowExplain exercise API. The files are separated by the exercise language:
+This directory contains the frozen exercise records associated with completed FlowExplain evaluations:
 
-- `portuguese.json`: 140 Portuguese exercises.
-- `english.json`: 6 English exercises.
+- `portuguese.json`: 75 distinct Portuguese exercises.
 
-Each file is a JSON object with `language`, `exportedAt` (UTC), `source`, `total` and an `exercises` array. Each array item is the corresponding full exercise returned by the API, including `id`, `status`, `title`, `subject`, `prompt`, `referenceCode`, `mermaid`, `blocks`, `examples`, `generationPayload`, and, when present, `terminalExplanation`. Blocks can contain structural rubrics, hints and canonical explanations. The API may normalize Mermaid or infer nodes when serializing records, so the export represents the API response rather than raw database tables.
+The JSON object contains `language`, `exportedAt` (UTC), `source`, `selection`, `total` and an `exercises` array. Each array item is the frozen exercise snapshot assigned to a completed evaluation, including `id`, `status`, `title`, `subject`, `prompt`, `referenceCode`, `mermaid`, `blocks`, `examples`, `generationPayload` and `terminalExplanation`. Blocks contain structural rubrics, hints and canonical explanations.
 
-All exercises in this snapshot were approved at export time. It contains no evaluator sessions, votes or comments. Question IDs and the Portuguese originals are preserved; the English copies are distinct exercises. The snapshot will not update automatically when the application database changes.
+The selection consists of distinct questions with at least one completed evaluation. Multiple completed evaluations of the same question are represented once; their frozen snapshots were identical. All 75 selected questions are in Portuguese; the English catalog had no completed evaluations at export time. The dataset contains no evaluator identities, sessions, votes or comments. It is a static export and will not update automatically.

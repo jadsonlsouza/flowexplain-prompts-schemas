@@ -18,11 +18,10 @@ The explanation schema is generated dynamically from the block IDs and number of
 
 ## Question Dataset
 
-The `questions/` directory contains a snapshot of the question catalog, separated by language:
+The `questions/` directory contains the frozen question versions associated with completed evaluations:
 
-- [Portuguese questions](questions/portuguese.json): 140 questions.
-- [English questions](questions/english.json): 6 questions, including the translation of the Friday visit-count question.
+- [Portuguese questions](questions/portuguese.json): 75 questions.
 
-Each JSON file includes the language, export timestamp, total count and complete exercise records returned by the FlowExplain API, including the problem statement, reference code, Mermaid flowchart, blocks, rubrics, explanations and any examples. See [questions/README.md](questions/README.md) for the format and scope. This is a snapshot, not a live database connection.
+All 75 questions in this evaluated set are in Portuguese; none of the English questions has a completed evaluation. The JSON contains the problem statement, reference code, Mermaid flowchart, blocks, rubrics, explanations and any examples. See [questions/README.md](questions/README.md) for the format and selection criteria. This is a snapshot, not a live database connection.
 
 See [Backend AI Configuration](BACKEND_AI_CONFIGURATION.md) for the model, API parameters, generation sequence and reproducibility limitations.
