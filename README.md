@@ -1,34 +1,19 @@
-# FlowExplain: AI Prompts and JSON Schemas
+# FlowExplain: Flowchart and Explanation Generation
 
-This repository documents the AI prompts, response formats, and backend settings in FlowExplain. It is a documentation snapshot of [FlowExplain](https://github.com/jadsonlsouza/flowexplain) at commit [`854e638aee8df430f5f4368cd2b13ee3c9706f85`](https://github.com/jadsonlsouza/flowexplain/tree/854e638aee8df430f5f4368cd2b13ee3c9706f85).
+This repository documents the prompts, JSON response schemas and backend configuration used to create programming exercises with a reference flowchart and worked explanations. It describes [FlowExplain](https://github.com/jadsonlsouza/flowexplain) at commit [`854e638aee8df430f5f4368cd2b13ee3c9706f85`](https://github.com/jadsonlsouza/flowexplain/tree/854e638aee8df430f5f4368cd2b13ee3c9706f85).
 
-## Contents
+## Generation Stages
 
-- [`prompts/english/`](prompts/english/): English translations of all 16 prompt message sets, including generation, evaluation, and legacy or repair functions.
-- [`prompts/original-pt/`](prompts/original-pt/): the actual Portuguese system messages emitted by the source code, with shared instructions expanded.
-- [`schemas/`](schemas/): the exact `response_format` objects used by the backend. The explanation schema is a generated example, as explained below.
-- [`BACKEND_AI_CONFIGURATION.md`](BACKEND_AI_CONFIGURATION.md): model selection, API settings, token limits, call sequence, validation, and reproducibility notes.
+| Stage | English prompt | Original prompt | Response format |
+| --- | --- | --- | --- |
+| Reference flowchart | [Mermaid generation](prompts/english/mermaid-generation.json) | [Original](prompts/original-pt/mermaid-generation.json) | [Mermaid schema](schemas/mermaid-response-format.json) |
+| Flowchart blocks and structural criteria | [Block generation](prompts/english/block-generation.json) | [Original](prompts/original-pt/block-generation.json) | [Blocks schema](schemas/rubric-blocks-response-format.json) |
+| Worked explanations | [Explanation generation](prompts/english/explanation-generation.json) | [Original](prompts/original-pt/explanation-generation.json) | [Generated schema example](schemas/explanations-response-format-example.json) |
 
-Each prompt file is a JSON array of Chat Completions messages with `role` and `content`. The English files translate the system messages for reading and do **not** imply that these English translations were used in the original application. The original code instructs the model to produce some learner-facing content in Brazilian Portuguese; those instructions and quoted Portuguese examples remain intact in translation.
+Each prompt file is a JSON array of Chat Completions messages with `role` and `content`. Shared instructions are expanded in the system message. The English files are translations for readers, not the original messages sent by the application. The Portuguese originals are included for verification: the source instructs the model to produce certain learner-facing text in Brazilian Portuguese.
 
-The `user` message in each file is a **synthetic example** showing the payload fields built by the application. Values such as `<PROBLEM_STATEMENT>` and `<STUDENT_CODE>` are placeholders; the real messages are populated from each request. Flowchart nodes, example blocks, code, candidate errors and line counts vary with the request. These files contain no learner submissions or API credentials.
+The `user` messages are **synthetic examples** that show the structure of the payload. Values such as `<PROBLEM_STATEMENT>` are placeholders. The real problem statement, reference code, Mermaid nodes and block IDs vary with each question. No learner data or API credentials are included.
 
-## Prompt Index
+The explanation schema is generated dynamically from the block IDs and number of reference-code lines. The included file is an example for two synthetic blocks and a two-line reference program; it is not a universal fixed schema. Application-side validation and normalization add checks beyond the response schemas.
 
-| Prompt file | Purpose | Status in the source snapshot |
-| --- | --- | --- |
-| `mermaid-generation` | Reference-code flowchart | Active staged generation |
-| `block-generation` | Structural criteria for nonterminal nodes | Active staged generation |
-| `explanation-generation` | Worked-example explanations | Active staged generation |
-| `student-flow` | Student-code flowchart and comparison | Active on request |
-| `natural-language-evaluation` | Natural-language response evaluation | Active on request |
-| `hint`, `block-explanation`, `final-review` | Learner feedback | Active on request |
-| `rubric-upgrade`, `rubric-revision` | Rubric regeneration and candidate revision | Explicit endpoints |
-| `mermaid-repair`, `block-repair`, `explanation-repair`, `legacy-exercise-repair`, `rubric-repair` | Repair builders present in the service | Not called automatically by the staged-generation pipeline in this snapshot |
-| `legacy-exercise-generation` | Single-call exercise generation | Fallback for generators lacking the three staged methods |
-
-The explanation response schema is built dynamically from the block IDs and number of lines in the reference code. `explanations-response-format-example.json` shows the generated schema for two synthetic blocks and a two-line reference program; it is **not** a universal fixed schema. The schema and application-side validation are separate: the latter may impose additional constraints, normalize generated fields, or construct terminal explanations locally.
-
-## Reproducibility
-
-The English translations are explanatory translations, not byte-identical prompts; use the Portuguese originals and the pinned source code to reproduce the exact system messages. Check the backend configuration document for model overrides and unresolved runtime parameters before describing a particular production run. Do not put real credentials, student responses, or evaluator data in a public fork.
+See [Backend AI Configuration](BACKEND_AI_CONFIGURATION.md) for the model, API parameters, generation sequence and reproducibility limitations.
