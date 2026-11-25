@@ -1,0 +1,2386 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "exercise_rubric_blocks",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          }
+        }
+      },
+      "required": [
+        "blocks"
+      ],
+      "additionalProperties": false,
+      "$defs": {
+        "requirement": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "ast_node"
+                  ]
+                },
+                "node": {
+                  "type": "string",
+                  "enum": [
+                    "If",
+                    "While",
+                    "For",
+                    "FunctionDef",
+                    "Return",
+                    "Assign",
+                    "AnnAssign",
+                    "AugAssign",
+                    "Expr"
+                  ]
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "comparison"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "==",
+                    "!=",
+                    "<",
+                    "<=",
+                    ">",
+                    ">="
+                  ]
+                },
+                "constant": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "variableBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "comparison"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "==",
+                    "!=",
+                    "<",
+                    "<=",
+                    ">",
+                    ">="
+                  ]
+                },
+                "constant": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ownerRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "call"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "call"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "call"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "assignment"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "assignment"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "operator"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "==",
+                    "!=",
+                    "<",
+                    "<=",
+                    ">",
+                    ">=",
+                    "+",
+                    "-",
+                    "*",
+                    "/",
+                    "%",
+                    "+=",
+                    "-=",
+                    "*=",
+                    "/=",
+                    "%="
+                  ]
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "output_text"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "null"
+                },
+                "form": {
+                  "type": "null"
+                },
+                "value": {
+                  "type": "string"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+="
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "augmented"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+"
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "self_add"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+="
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "augmented"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "targetRef": {
+                  "type": "null"
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+"
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "self_add"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+="
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "augmented"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceRef": {
+                  "type": "null"
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+"
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "self_add"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+="
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "augmented"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "accumulation"
+                  ]
+                },
+                "node": {
+                  "type": "null"
+                },
+                "name": {
+                  "type": "null"
+                },
+                "constant": {
+                  "type": "null"
+                },
+                "variableBind": {
+                  "type": "null"
+                },
+                "variableRef": {
+                  "type": "null"
+                },
+                "ownerRef": {
+                  "type": "null"
+                },
+                "targetBind": {
+                  "type": "null"
+                },
+                "targetRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sourceBind": {
+                  "type": "null"
+                },
+                "sourceRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "+"
+                  ]
+                },
+                "form": {
+                  "type": "string",
+                  "enum": [
+                    "self_add"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "bindNode": {
+                  "type": "null"
+                },
+                "bindOccurrence": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "insideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "parentRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "outsideRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "beforeRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                },
+                "afterRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "type",
+                "node",
+                "name",
+                "constant",
+                "variableBind",
+                "variableRef",
+                "ownerRef",
+                "targetBind",
+                "targetRef",
+                "sourceBind",
+                "sourceRef",
+                "operator",
+                "form",
+                "value",
+                "bindNode",
+                "bindOccurrence",
+                "insideRef",
+                "parentRef",
+                "outsideRef",
+                "beforeRef",
+                "afterRef"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "alternative": {
+          "type": "object",
+          "properties": {
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/requirement"
+              }
+            }
+          },
+          "required": [
+            "allOf"
+          ],
+          "additionalProperties": false
+        },
+        "rubric": {
+          "type": "object",
+          "properties": {
+            "allOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/requirement"
+              },
+              "minItems": 1
+            },
+            "anyOf": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/alternative"
+              }
+            }
+          },
+          "required": [
+            "allOf",
+            "anyOf"
+          ],
+          "additionalProperties": false
+        },
+        "block": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "mermaidNodeId": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string",
+              "enum": [
+                "input",
+                "output",
+                "decision",
+                "loop",
+                "process",
+                "function"
+              ]
+            },
+            "rubric": {
+              "$ref": "#/$defs/rubric"
+            },
+            "hint": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "mermaidNodeId",
+            "label",
+            "kind",
+            "rubric",
+            "hint"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

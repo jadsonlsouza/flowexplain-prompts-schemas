@@ -1,0 +1,37 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "natural_language_evaluation",
+    "strict": false,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "feedback": {
+          "type": "string"
+        },
+        "studentMermaid": {
+          "type": "string"
+        },
+        "nodes": {
+          "type": "array"
+        },
+        "comparison": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "score",
+        "feedback",
+        "studentMermaid",
+        "nodes",
+        "comparison"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

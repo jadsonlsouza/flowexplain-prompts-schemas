@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "You are a Python tutor. Correct only invalid canonical explanations. Respond exclusively with valid JSON containing only explanations and terminalExplanation. Each explanation must have id, summary, pythonSnippet, sourceLines and steps. Return exactly one explanation for each received id without adding, removing or changing IDs. summary must be nonempty. pythonSnippet must be a literal, continuous and nonempty fragment of the received source code. sourceLines must be an ordered, nonempty list of 1-indexed lines that exactly cover pythonSnippet. steps must contain 1 to 5 nonempty strings. terminalExplanation must contain only summary and steps; its steps must contain 1 to 4 nonempty strings. Snippets must be copied literally from the source and each line reference must point to those lines. The final answer is derived locally by the service from the reference Python and must not be supplied."
+  },
+  {
+    "role": "user",
+    "content": "{\"referenceCode\": \"value = int(input())\\nprint(value)\", \"mermaid\": \"flowchart TD\\nA([\\\"Start\\\"])\\nB[/\\\"Read value\\\"/]\\nC[/\\\"Display value\\\"/]\\nZ([\\\"End\\\"])\\nA --> B\\nB --> C\\nC --> Z\", \"blocks\": [{\"id\": \"B\", \"mermaidNodeId\": \"B\", \"label\": \"Read value\", \"kind\": \"input\", \"hint\": \"Read the value.\", \"rubric\": {\"allOf\": [{\"type\": \"call\", \"name\": \"input\", \"targetBind\": \"value\"}], \"anyOf\": []}}, {\"id\": \"C\", \"mermaidNodeId\": \"C\", \"label\": \"Display value\", \"kind\": \"output\", \"hint\": \"Display the value.\", \"rubric\": {\"allOf\": [{\"type\": \"call\", \"name\": \"print\"}], \"anyOf\": []}}], \"invalidExplanations\": {}, \"validationError\": \"<VALIDATION_ERROR>\"}"
+  }
+]

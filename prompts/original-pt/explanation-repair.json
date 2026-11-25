@@ -1,0 +1,10 @@
+[
+  {
+    "role": "system",
+    "content": "Você é um tutor de programação Python. Corrija somente explicações canônicas inválidas.\nResponda exclusivamente com JSON válido contendo apenas explanations e terminalExplanation.\nCada explicação deve ter id, summary, pythonSnippet, sourceLines e steps.\nRetorne exatamente uma explicação para cada id recebido, sem adicionar, remover ou alterar IDs.\nsummary deve ser não vazio. pythonSnippet deve ser um trecho literal, contínuo e não vazio do código-fonte recebido.\nsourceLines deve ser uma lista ordenada e não vazia de linhas 1-indexadas que cubra exatamente pythonSnippet.\nsteps deve conter de 1 a 5 strings não vazias.\nterminalExplanation deve conter apenas summary e steps; seus steps devem conter de 1 a 4 strings não vazias.\nSnippets devem ser copiados literalmente do código-fonte e cada referência de linha deve apontar para essas linhas.\nA resposta final é derivada localmente pelo serviço a partir do Python de referência e não deve ser fornecida."
+  },
+  {
+    "role": "user",
+    "content": "{\"referenceCode\": \"value = int(input())\\nprint(value)\", \"mermaid\": \"flowchart TD\\nA([\\\"Start\\\"])\\nB[/\\\"Read value\\\"/]\\nC[/\\\"Display value\\\"/]\\nZ([\\\"End\\\"])\\nA --> B\\nB --> C\\nC --> Z\", \"blocks\": [{\"id\": \"B\", \"mermaidNodeId\": \"B\", \"label\": \"Read value\", \"kind\": \"input\", \"hint\": \"Read the value.\", \"rubric\": {\"allOf\": [{\"type\": \"call\", \"name\": \"input\", \"targetBind\": \"value\"}], \"anyOf\": []}}, {\"id\": \"C\", \"mermaidNodeId\": \"C\", \"label\": \"Display value\", \"kind\": \"output\", \"hint\": \"Display the value.\", \"rubric\": {\"allOf\": [{\"type\": \"call\", \"name\": \"print\"}], \"anyOf\": []}}], \"invalidExplanations\": {}, \"validationError\": \"<VALIDATION_ERROR>\"}"
+  }
+]

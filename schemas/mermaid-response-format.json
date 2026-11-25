@@ -1,0 +1,19 @@
+{
+  "type": "json_schema",
+  "json_schema": {
+    "name": "mermaid_generation",
+    "strict": true,
+    "schema": {
+      "type": "object",
+      "properties": {
+        "mermaid": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "mermaid"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
