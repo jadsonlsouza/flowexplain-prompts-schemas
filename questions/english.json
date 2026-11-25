@@ -1,0 +1,1838 @@
+{
+  "language": "en",
+  "exportedAt": "2026-11-25T21:28:14.235715+00:00",
+  "source": "FlowExplain API",
+  "total": 6,
+  "exercises": [
+    {
+      "approved_at": "2026-11-13 20:52:59.953597+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "lista = []",
+            "sourceLines": [
+              1
+            ],
+            "steps": [
+              "An empty list is created to hold the daily visit counts.",
+              "The input loop will add one value for each day of the week."
+            ],
+            "summary": "Create an empty list for daily visits."
+          },
+          "hint": "Review this step: create an empty list for daily visits.",
+          "id": "B",
+          "kind": "process",
+          "label": "Create an empty list for daily visits",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "targetBind": "lista",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "contador = 0",
+            "sourceLines": [
+              2
+            ],
+            "steps": [
+              "The counter starts at zero.",
+              "It keeps track of how many days have been read."
+            ],
+            "summary": "Initialize the counter to zero."
+          },
+          "hint": "Review this step: initialize the counter to zero.",
+          "id": "C",
+          "kind": "process",
+          "label": "Initialize the counter to zero",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "constant": 0,
+                "targetBind": "contador",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "while contador < 7:",
+            "sourceLines": [
+              3
+            ],
+            "steps": [
+              "The loop continues while the counter is less than seven.",
+              "When seven values have been read, control moves to the correction."
+            ],
+            "summary": "Counter < 7?."
+          },
+          "hint": "Review this step: counter < 7?.",
+          "id": "D",
+          "kind": "loop",
+          "label": "Counter < 7?",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "bindNode": "loop_days",
+                "node": "While",
+                "type": "ast_node"
+              },
+              {
+                "constant": 7,
+                "name": "<",
+                "ownerRef": "loop_days",
+                "type": "comparison",
+                "variableBind": "contador"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "valor = int(input())",
+            "sourceLines": [
+              4
+            ],
+            "steps": [
+              "input() reads the number of visits for the current day.",
+              "int() converts it to an integer and assigns it to valor."
+            ],
+            "summary": "Read the day's number of visits."
+          },
+          "hint": "Review this step: read the day's number of visits.",
+          "id": "E",
+          "kind": "input",
+          "label": "Read the day's number of visits",
+          "mermaidNodeId": "E",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "read_day",
+                "name": "input",
+                "parentRef": "loop_days",
+                "targetBind": "valor",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "lista.append(valor)",
+            "sourceLines": [
+              5
+            ],
+            "steps": [
+              "append() adds the current value to the end of the list.",
+              "Repeating this step stores the values in weekday order."
+            ],
+            "summary": "Add the number to the list."
+          },
+          "hint": "Review this step: add the number to the list.",
+          "id": "F",
+          "kind": "process",
+          "label": "Add the number to the list",
+          "mermaidNodeId": "F",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "read_day",
+                "name": "append",
+                "parentRef": "loop_days",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "contador = contador + 1",
+            "sourceLines": [
+              6
+            ],
+            "steps": [
+              "The counter increases by one.",
+              "This moves the loop toward its seven-day stopping condition."
+            ],
+            "summary": "Increment the counter."
+          },
+          "hint": "Review this step: increment the counter.",
+          "id": "G",
+          "kind": "process",
+          "label": "Increment the counter",
+          "mermaidNodeId": "G",
+          "rubric": {
+            "allOf": [
+              {
+                "parentRef": "loop_days",
+                "targetRef": "contador",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "lista[4] = lista[4] + 3",
+            "sourceLines": [
+              8
+            ],
+            "steps": [
+              "Index 4 represents Friday because the list starts at index 0.",
+              "Add three to the recorded value and store the corrected value in the same position."
+            ],
+            "summary": "Correct Friday's number of visits."
+          },
+          "hint": "Review this step: correct friday's number of visits.",
+          "id": "H",
+          "kind": "process",
+          "label": "Correct Friday's number of visits",
+          "mermaidNodeId": "H",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "loop_days",
+                "bindOccurrence": "correction_step",
+                "name": "+",
+                "type": "operator"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "indice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+            "sourceLines": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "steps": [
+              "A second loop visits each list element in order.",
+              "print() uses end=\" \" to keep the values on one line, separated by spaces."
+            ],
+            "summary": "Display the corrected list."
+          },
+          "hint": "Review this step: display the corrected list.",
+          "id": "I",
+          "kind": "output",
+          "label": "Display the corrected list",
+          "mermaidNodeId": "I",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "correction_step",
+                "bindNode": "display_loop",
+                "node": "While",
+                "type": "ast_node"
+              },
+              {
+                "constant": 7,
+                "name": "<",
+                "ownerRef": "display_loop",
+                "type": "comparison",
+                "variableBind": "display_index"
+              },
+              {
+                "name": "print",
+                "parentRef": "display_loop",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:52:59.953597+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "lista = []",
+              "sourceLines": [
+                1
+              ],
+              "steps": [
+                "An empty list is created to hold the daily visit counts.",
+                "The input loop will add one value for each day of the week."
+              ],
+              "summary": "Create an empty list for daily visits."
+            },
+            "hint": "Review this step: create an empty list for daily visits.",
+            "id": "B",
+            "kind": "process",
+            "label": "Create an empty list for daily visits",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "targetBind": "lista",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "contador = 0",
+              "sourceLines": [
+                2
+              ],
+              "steps": [
+                "The counter starts at zero.",
+                "It keeps track of how many days have been read."
+              ],
+              "summary": "Initialize the counter to zero."
+            },
+            "hint": "Review this step: initialize the counter to zero.",
+            "id": "C",
+            "kind": "process",
+            "label": "Initialize the counter to zero",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "constant": 0,
+                  "targetBind": "contador",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "while contador < 7:",
+              "sourceLines": [
+                3
+              ],
+              "steps": [
+                "The loop continues while the counter is less than seven.",
+                "When seven values have been read, control moves to the correction."
+              ],
+              "summary": "Counter < 7?."
+            },
+            "hint": "Review this step: counter < 7?.",
+            "id": "D",
+            "kind": "loop",
+            "label": "Counter < 7?",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindNode": "loop_days",
+                  "node": "While",
+                  "type": "ast_node"
+                },
+                {
+                  "constant": 7,
+                  "name": "<",
+                  "ownerRef": "loop_days",
+                  "type": "comparison",
+                  "variableBind": "contador"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "valor = int(input())",
+              "sourceLines": [
+                4
+              ],
+              "steps": [
+                "input() reads the number of visits for the current day.",
+                "int() converts it to an integer and assigns it to valor."
+              ],
+              "summary": "Read the day's number of visits."
+            },
+            "hint": "Review this step: read the day's number of visits.",
+            "id": "E",
+            "kind": "input",
+            "label": "Read the day's number of visits",
+            "mermaidNodeId": "E",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "read_day",
+                  "name": "input",
+                  "parentRef": "loop_days",
+                  "targetBind": "valor",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "lista.append(valor)",
+              "sourceLines": [
+                5
+              ],
+              "steps": [
+                "append() adds the current value to the end of the list.",
+                "Repeating this step stores the values in weekday order."
+              ],
+              "summary": "Add the number to the list."
+            },
+            "hint": "Review this step: add the number to the list.",
+            "id": "F",
+            "kind": "process",
+            "label": "Add the number to the list",
+            "mermaidNodeId": "F",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "read_day",
+                  "name": "append",
+                  "parentRef": "loop_days",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "contador = contador + 1",
+              "sourceLines": [
+                6
+              ],
+              "steps": [
+                "The counter increases by one.",
+                "This moves the loop toward its seven-day stopping condition."
+              ],
+              "summary": "Increment the counter."
+            },
+            "hint": "Review this step: increment the counter.",
+            "id": "G",
+            "kind": "process",
+            "label": "Increment the counter",
+            "mermaidNodeId": "G",
+            "rubric": {
+              "allOf": [
+                {
+                  "parentRef": "loop_days",
+                  "targetRef": "contador",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "lista[4] = lista[4] + 3",
+              "sourceLines": [
+                8
+              ],
+              "steps": [
+                "Index 4 represents Friday because the list starts at index 0.",
+                "Add three to the recorded value and store the corrected value in the same position."
+              ],
+              "summary": "Correct Friday's number of visits."
+            },
+            "hint": "Review this step: correct friday's number of visits.",
+            "id": "H",
+            "kind": "process",
+            "label": "Correct Friday's number of visits",
+            "mermaidNodeId": "H",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "loop_days",
+                  "bindOccurrence": "correction_step",
+                  "name": "+",
+                  "type": "operator"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "indice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+              "sourceLines": [
+                9,
+                10,
+                11,
+                12
+              ],
+              "steps": [
+                "A second loop visits each list element in order.",
+                "print() uses end=\" \" to keep the values on one line, separated by spaces."
+              ],
+              "summary": "Display the corrected list."
+            },
+            "hint": "Review this step: display the corrected list.",
+            "id": "I",
+            "kind": "output",
+            "label": "Display the corrected list",
+            "mermaidNodeId": "I",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "correction_step",
+                  "bindNode": "display_loop",
+                  "node": "While",
+                  "type": "ast_node"
+                },
+                {
+                  "constant": 7,
+                  "name": "<",
+                  "ownerRef": "display_loop",
+                  "type": "comparison",
+                  "variableBind": "display_index"
+                },
+                {
+                  "name": "print",
+                  "parentRef": "display_loop",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD;\n    A([\"Start\"]);\n    B[\"Create an empty list for daily visits\"];\n    C[\"Initialize the counter to zero\"];\n    D{\"Counter < 7?\"};\n    E[/\"Read the day's number of visits\"/];\n    F[\"Add the number to the list\"];\n    G[\"Increment the counter\"];\n    H[\"Correct Friday's number of visits\"];\n    I[/\"Display the corrected list\"/];\n    Z([\"End\"]);\n\n    A --> B;\n    B --> C;\n    C --> D;\n    D -- \"Yes\" --> E;\n    E --> F;\n    F --> G;\n    G --> D;\n    D -- \"No\" --> H;\n    H --> I;\n    I --> Z;",
+        "prompt": "A veterinary clinic records the number of visits for each day of the week in a list of seven positions, from Monday (index 0) through Sunday (index 6). The receptionist discovers that Friday's count (index 4) was recorded three visits too low.\n\nRead seven integers, one per line, in order from Monday to Sunday. Add 3 to Friday's value and print all seven corrected values on a single line, separated by spaces, in the same order.",
+        "referenceCode": "lista = []\ncontador = 0\nwhile contador < 7:\n    valor = int(input())\n    lista.append(valor)\n    contador = contador + 1\n# Correct Friday's value (index 4)\nlista[4] = lista[4] + 3\nindice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+        "subject": "Lists and loops",
+        "terminalExplanation": {
+          "finalAnswer": "lista = []\ncontador = 0\nwhile contador < 7:\n    valor = int(input())\n    lista.append(valor)\n    contador = contador + 1\n# Correct Friday's value (index 4)\nlista[4] = lista[4] + 3\nindice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+          "sourceLines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "steps": [
+            "Connect the flowchart steps to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Correcting Friday's visit count",
+        "translationSourceId": "44d27e49f27d462f89ea8c1ec63db4a1"
+      },
+      "id": "en_44d27e49f27d462f89ea8c1ec63db4a1",
+      "language": "en",
+      "mermaid": "flowchart TD;\n    A([\"Start\"]);\n    B[\"Create an empty list for daily visits\"];\n    C[\"Initialize the counter to zero\"];\n    D{\"Counter < 7?\"};\n    E[/\"Read the day's number of visits\"/];\n    F[\"Add the number to the list\"];\n    G[\"Increment the counter\"];\n    H[\"Correct Friday's number of visits\"];\n    I[/\"Display the corrected list\"/];\n    Z([\"End\"]);\n\n    A --> B;\n    B --> C;\n    C --> D;\n    D -- \"Yes\" --> E;\n    E --> F;\n    F --> G;\n    G --> D;\n    D -- \"No\" --> H;\n    H --> I;\n    I --> Z;",
+      "prompt": "A veterinary clinic records the number of visits for each day of the week in a list of seven positions, from Monday (index 0) through Sunday (index 6). The receptionist discovers that Friday's count (index 4) was recorded three visits too low.\n\nRead seven integers, one per line, in order from Monday to Sunday. Add 3 to Friday's value and print all seven corrected values on a single line, separated by spaces, in the same order.",
+      "referenceCode": "lista = []\ncontador = 0\nwhile contador < 7:\n    valor = int(input())\n    lista.append(valor)\n    contador = contador + 1\n# Correct Friday's value (index 4)\nlista[4] = lista[4] + 3\nindice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_1df03948ae9416027b34f2b87e126a6a",
+        "name": "Lists and loops"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "lista = []\ncontador = 0\nwhile contador < 7:\n    valor = int(input())\n    lista.append(valor)\n    contador = contador + 1\n# Correct Friday's value (index 4)\nlista[4] = lista[4] + 3\nindice = 0\nwhile indice < 7:\n    print(lista[indice], end=\" \")\n    indice = indice + 1",
+        "sourceLines": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "steps": [
+          "Connect the flowchart steps to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Correcting Friday's visit count",
+      "updated_at": "2026-11-13 20:52:59.953597+00"
+    },
+    {
+      "approved_at": "2026-11-13 20:47:40.715704+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "t = int(input(\"Tonnes of paper recycled:\"))",
+            "sourceLines": [
+              1
+            ],
+            "steps": [
+              "input() reads the number of tonnes as text.",
+              "int() converts it to an integer stored in t."
+            ],
+            "summary": "Read tonnes of recycled paper."
+          },
+          "hint": "Review this step: read tonnes of recycled paper.",
+          "id": "B",
+          "kind": "input",
+          "label": "Read tonnes of recycled paper",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "first_read",
+                "name": "input",
+                "targetBind": "t",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "E = E = 2 * t * t + 5 * t + 10",
+            "sourceLines": [
+              2
+            ],
+            "steps": [
+              "Substitute t into the formula and compute the result.",
+              "The value is stored in E for display."
+            ],
+            "summary": "Calculate avoided emissions."
+          },
+          "hint": "Review this step: calculate avoided emissions.",
+          "id": "C",
+          "kind": "process",
+          "label": "Calculate avoided emissions",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_read",
+                "bindOccurrence": "calculate_emission",
+                "targetBind": "E",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print(E)",
+            "sourceLines": [
+              3
+            ],
+            "steps": [
+              "E contains the calculated emissions avoided.",
+              "print(E) displays the value in kilograms."
+            ],
+            "summary": "Display avoided emissions."
+          },
+          "hint": "Review this step: display avoided emissions.",
+          "id": "D",
+          "kind": "output",
+          "label": "Display avoided emissions",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "calculate_emission",
+                "bindOccurrence": "display_emission",
+                "name": "print",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:47:40.715704+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "t = int(input(\"Tonnes of paper recycled:\"))",
+              "sourceLines": [
+                1
+              ],
+              "steps": [
+                "input() reads the number of tonnes as text.",
+                "int() converts it to an integer stored in t."
+              ],
+              "summary": "Read tonnes of recycled paper."
+            },
+            "hint": "Review this step: read tonnes of recycled paper.",
+            "id": "B",
+            "kind": "input",
+            "label": "Read tonnes of recycled paper",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "first_read",
+                  "name": "input",
+                  "targetBind": "t",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "E = E = 2 * t * t + 5 * t + 10",
+              "sourceLines": [
+                2
+              ],
+              "steps": [
+                "Substitute t into the formula and compute the result.",
+                "The value is stored in E for display."
+              ],
+              "summary": "Calculate avoided emissions."
+            },
+            "hint": "Review this step: calculate avoided emissions.",
+            "id": "C",
+            "kind": "process",
+            "label": "Calculate avoided emissions",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_read",
+                  "bindOccurrence": "calculate_emission",
+                  "targetBind": "E",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print(E)",
+              "sourceLines": [
+                3
+              ],
+              "steps": [
+                "E contains the calculated emissions avoided.",
+                "print(E) displays the value in kilograms."
+              ],
+              "summary": "Display avoided emissions."
+            },
+            "hint": "Review this step: display avoided emissions.",
+            "id": "D",
+            "kind": "output",
+            "label": "Display avoided emissions",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "calculate_emission",
+                  "bindOccurrence": "display_emission",
+                  "name": "print",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read tonnes of recycled paper\"/]\nC[\"Calculate avoided emissions\"]\nD[/\"Display avoided emissions\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+        "prompt": "For t tonnes of recycled paper, the amount E of carbon dioxide emissions avoided, in kilograms, is E = 2 * t * t + 5 * t + 10.\n\nWrite a program that reads an integer representing the tonnes of paper recycled, calculates E, and prints only the numerical result.",
+        "referenceCode": "t = int(input(\"Tonnes of paper recycled:\"))\nE = E = 2 * t * t + 5 * t + 10\nprint(E)",
+        "subject": "Input and output",
+        "terminalExplanation": {
+          "finalAnswer": "t = int(input(\"Tonnes of paper recycled:\"))\nE = E = 2 * t * t + 5 * t + 10\nprint(E)",
+          "sourceLines": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            "Connect the steps in the flowchart to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Emissions avoided by recycling paper",
+        "translationSourceId": "90c8fed26ac84bc2a2ec448fbe253968"
+      },
+      "id": "en_90c8fed26ac84bc2a2ec448fbe253968",
+      "language": "en",
+      "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read tonnes of recycled paper\"/]\nC[\"Calculate avoided emissions\"]\nD[/\"Display avoided emissions\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+      "prompt": "For t tonnes of recycled paper, the amount E of carbon dioxide emissions avoided, in kilograms, is E = 2 * t * t + 5 * t + 10.\n\nWrite a program that reads an integer representing the tonnes of paper recycled, calculates E, and prints only the numerical result.",
+      "referenceCode": "t = int(input(\"Tonnes of paper recycled:\"))\nE = E = 2 * t * t + 5 * t + 10\nprint(E)",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_b0d72510b7c3b904cbaea7f9c4125d19",
+        "name": "Input and output"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "t = int(input(\"Tonnes of paper recycled:\"))\nE = E = 2 * t * t + 5 * t + 10\nprint(E)",
+        "sourceLines": [
+          1,
+          2,
+          3
+        ],
+        "steps": [
+          "Connect the steps in the flowchart to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Emissions avoided by recycling paper",
+      "updated_at": "2026-11-13 20:47:40.715704+00"
+    },
+    {
+      "approved_at": "2026-11-13 20:47:40.715704+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "m = int(input(\"Load mass in tonnes: \"))",
+            "sourceLines": [
+              1
+            ],
+            "steps": [
+              "input() reads the load mass as text.",
+              "int() converts it to an integer stored in m."
+            ],
+            "summary": "Read the load mass in tonnes."
+          },
+          "hint": "Review this step: read the load mass in tonnes.",
+          "id": "B",
+          "kind": "input",
+          "label": "Read the load mass in tonnes",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "first_read",
+                "name": "input",
+                "targetBind": "m",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "d = 2*m**2 + 3*m + 5",
+            "sourceLines": [
+              2
+            ],
+            "steps": [
+              "The expression substitutes m into the given formula; **2 squares the mass.",
+              "The calculated wear is stored in d."
+            ],
+            "summary": "Calculate tire wear."
+          },
+          "hint": "Review this step: calculate tire wear.",
+          "id": "C",
+          "kind": "process",
+          "label": "Calculate tire wear",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_read",
+                "targetBind": "d",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print(d)",
+            "sourceLines": [
+              3
+            ],
+            "steps": [
+              "The variable d contains the estimated wear.",
+              "print(d) displays the numerical result."
+            ],
+            "summary": "Display tire wear."
+          },
+          "hint": "Review this step: display tire wear.",
+          "id": "D",
+          "kind": "output",
+          "label": "Display tire wear",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "name": "print",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:47:40.715704+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "m = int(input(\"Load mass in tonnes: \"))",
+              "sourceLines": [
+                1
+              ],
+              "steps": [
+                "input() reads the load mass as text.",
+                "int() converts it to an integer stored in m."
+              ],
+              "summary": "Read the load mass in tonnes."
+            },
+            "hint": "Review this step: read the load mass in tonnes.",
+            "id": "B",
+            "kind": "input",
+            "label": "Read the load mass in tonnes",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "first_read",
+                  "name": "input",
+                  "targetBind": "m",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "d = 2*m**2 + 3*m + 5",
+              "sourceLines": [
+                2
+              ],
+              "steps": [
+                "The expression substitutes m into the given formula; **2 squares the mass.",
+                "The calculated wear is stored in d."
+              ],
+              "summary": "Calculate tire wear."
+            },
+            "hint": "Review this step: calculate tire wear.",
+            "id": "C",
+            "kind": "process",
+            "label": "Calculate tire wear",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_read",
+                  "targetBind": "d",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print(d)",
+              "sourceLines": [
+                3
+              ],
+              "steps": [
+                "The variable d contains the estimated wear.",
+                "print(d) displays the numerical result."
+              ],
+              "summary": "Display tire wear."
+            },
+            "hint": "Review this step: display tire wear.",
+            "id": "D",
+            "kind": "output",
+            "label": "Display tire wear",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "name": "print",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the load mass in tonnes\"/]\nC[\"Calculate tire wear\"]\nD[/\"Display tire wear\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+        "prompt": "A transport company estimates the wear on a truck's tires using D = 2*m**2 + 3*m + 5, where m is the mass of the load in tonnes.\n\nWrite a program that reads the load mass as an integer, calculates the estimated tire wear, and prints only the numerical result.",
+        "referenceCode": "m = int(input(\"Load mass in tonnes: \"))\nd = 2*m**2 + 3*m + 5\nprint(d)",
+        "subject": "Input and output",
+        "terminalExplanation": {
+          "finalAnswer": "m = int(input(\"Load mass in tonnes: \"))\nd = 2*m**2 + 3*m + 5\nprint(d)",
+          "sourceLines": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            "Connect the steps in the flowchart to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Estimated tire wear",
+        "translationSourceId": "64d302570f3f49cbbc24056ad63998eb"
+      },
+      "id": "en_64d302570f3f49cbbc24056ad63998eb",
+      "language": "en",
+      "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the load mass in tonnes\"/]\nC[\"Calculate tire wear\"]\nD[/\"Display tire wear\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+      "prompt": "A transport company estimates the wear on a truck's tires using D = 2*m**2 + 3*m + 5, where m is the mass of the load in tonnes.\n\nWrite a program that reads the load mass as an integer, calculates the estimated tire wear, and prints only the numerical result.",
+      "referenceCode": "m = int(input(\"Load mass in tonnes: \"))\nd = 2*m**2 + 3*m + 5\nprint(d)",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_b0d72510b7c3b904cbaea7f9c4125d19",
+        "name": "Input and output"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "m = int(input(\"Load mass in tonnes: \"))\nd = 2*m**2 + 3*m + 5\nprint(d)",
+        "sourceLines": [
+          1,
+          2,
+          3
+        ],
+        "steps": [
+          "Connect the steps in the flowchart to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Estimated tire wear",
+      "updated_at": "2026-11-13 20:47:40.715704+00"
+    },
+    {
+      "approved_at": "2026-11-13 20:47:40.715704+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "total_brinquedos = int(input(\"Total number of toys produced: \"))",
+            "sourceLines": [
+              1
+            ],
+            "steps": [
+              "input() reads the number of toys as text.",
+              "int() converts it to an integer stored in total_brinquedos."
+            ],
+            "summary": "Read the total number of toys."
+          },
+          "hint": "Review this step: read the total number of toys.",
+          "id": "B",
+          "kind": "input",
+          "label": "Read the total number of toys",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "first_read",
+                "name": "input",
+                "targetBind": "total_brinquedos",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "caixas = total_brinquedos // 12",
+            "sourceLines": [
+              2
+            ],
+            "steps": [
+              "Integer division // 12 counts the number of complete groups of twelve.",
+              "The result is stored in caixas."
+            ],
+            "summary": "Calculate complete boxes."
+          },
+          "hint": "Review this step: calculate complete boxes.",
+          "id": "C",
+          "kind": "process",
+          "label": "Calculate complete boxes",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_read",
+                "bindOccurrence": "calculate_boxes",
+                "targetBind": "caixas",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "restantes = total_brinquedos % 12",
+            "sourceLines": [
+              3
+            ],
+            "steps": [
+              "The % operator finds the remainder after dividing by 12.",
+              "The result is stored in restantes, the number of unpacked toys."
+            ],
+            "summary": "Calculate remaining toys."
+          },
+          "hint": "Review this step: calculate remaining toys.",
+          "id": "D",
+          "kind": "process",
+          "label": "Calculate remaining toys",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_read",
+                "targetBind": "restantes",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print(caixas)",
+            "sourceLines": [
+              4
+            ],
+            "steps": [
+              "caixas holds the number of complete boxes.",
+              "print(caixas) displays it on the first line."
+            ],
+            "summary": "Display complete boxes."
+          },
+          "hint": "Review this step: display complete boxes.",
+          "id": "E",
+          "kind": "output",
+          "label": "Display complete boxes",
+          "mermaidNodeId": "E",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "calculate_boxes",
+                "bindOccurrence": "first_output",
+                "name": "print",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print(restantes)",
+            "sourceLines": [
+              5
+            ],
+            "steps": [
+              "restantes holds the number of unpacked toys.",
+              "print(restantes) displays it on the second line."
+            ],
+            "summary": "Display remaining toys."
+          },
+          "hint": "Review this step: display remaining toys.",
+          "id": "F",
+          "kind": "output",
+          "label": "Display remaining toys",
+          "mermaidNodeId": "F",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_output",
+                "name": "print",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:47:40.715704+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "total_brinquedos = int(input(\"Total number of toys produced: \"))",
+              "sourceLines": [
+                1
+              ],
+              "steps": [
+                "input() reads the number of toys as text.",
+                "int() converts it to an integer stored in total_brinquedos."
+              ],
+              "summary": "Read the total number of toys."
+            },
+            "hint": "Review this step: read the total number of toys.",
+            "id": "B",
+            "kind": "input",
+            "label": "Read the total number of toys",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "first_read",
+                  "name": "input",
+                  "targetBind": "total_brinquedos",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "caixas = total_brinquedos // 12",
+              "sourceLines": [
+                2
+              ],
+              "steps": [
+                "Integer division // 12 counts the number of complete groups of twelve.",
+                "The result is stored in caixas."
+              ],
+              "summary": "Calculate complete boxes."
+            },
+            "hint": "Review this step: calculate complete boxes.",
+            "id": "C",
+            "kind": "process",
+            "label": "Calculate complete boxes",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_read",
+                  "bindOccurrence": "calculate_boxes",
+                  "targetBind": "caixas",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "restantes = total_brinquedos % 12",
+              "sourceLines": [
+                3
+              ],
+              "steps": [
+                "The % operator finds the remainder after dividing by 12.",
+                "The result is stored in restantes, the number of unpacked toys."
+              ],
+              "summary": "Calculate remaining toys."
+            },
+            "hint": "Review this step: calculate remaining toys.",
+            "id": "D",
+            "kind": "process",
+            "label": "Calculate remaining toys",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_read",
+                  "targetBind": "restantes",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print(caixas)",
+              "sourceLines": [
+                4
+              ],
+              "steps": [
+                "caixas holds the number of complete boxes.",
+                "print(caixas) displays it on the first line."
+              ],
+              "summary": "Display complete boxes."
+            },
+            "hint": "Review this step: display complete boxes.",
+            "id": "E",
+            "kind": "output",
+            "label": "Display complete boxes",
+            "mermaidNodeId": "E",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "calculate_boxes",
+                  "bindOccurrence": "first_output",
+                  "name": "print",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print(restantes)",
+              "sourceLines": [
+                5
+              ],
+              "steps": [
+                "restantes holds the number of unpacked toys.",
+                "print(restantes) displays it on the second line."
+              ],
+              "summary": "Display remaining toys."
+            },
+            "hint": "Review this step: display remaining toys.",
+            "id": "F",
+            "kind": "output",
+            "label": "Display remaining toys",
+            "mermaidNodeId": "F",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_output",
+                  "name": "print",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the total number of toys\"/]\nC[\"Calculate complete boxes\"]\nD[\"Calculate remaining toys\"]\nE[/\"Display complete boxes\"/]\nF[/\"Display remaining toys\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> E\nE --> F\nF --> END",
+        "prompt": "A toy factory packs exactly 12 toys per box. Given the total number of toys produced during a shift, determine how many complete boxes can be filled and how many toys remain unpacked.\n\nRead a positive integer representing the number of toys. Print the number of complete boxes on the first line and the number of remaining toys on the second line.",
+        "referenceCode": "total_brinquedos = int(input(\"Total number of toys produced: \"))\ncaixas = total_brinquedos // 12\nrestantes = total_brinquedos % 12\nprint(caixas)\nprint(restantes)",
+        "subject": "Input and output",
+        "terminalExplanation": {
+          "finalAnswer": "total_brinquedos = int(input(\"Total number of toys produced: \"))\ncaixas = total_brinquedos // 12\nrestantes = total_brinquedos % 12\nprint(caixas)\nprint(restantes)",
+          "sourceLines": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "steps": [
+            "Connect the steps in the flowchart to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Packing toys in boxes of twelve",
+        "translationSourceId": "8b4c8c78b0eb4f41a0de34fe2a65f83a"
+      },
+      "id": "en_8b4c8c78b0eb4f41a0de34fe2a65f83a",
+      "language": "en",
+      "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the total number of toys\"/]\nC[\"Calculate complete boxes\"]\nD[\"Calculate remaining toys\"]\nE[/\"Display complete boxes\"/]\nF[/\"Display remaining toys\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> E\nE --> F\nF --> END",
+      "prompt": "A toy factory packs exactly 12 toys per box. Given the total number of toys produced during a shift, determine how many complete boxes can be filled and how many toys remain unpacked.\n\nRead a positive integer representing the number of toys. Print the number of complete boxes on the first line and the number of remaining toys on the second line.",
+      "referenceCode": "total_brinquedos = int(input(\"Total number of toys produced: \"))\ncaixas = total_brinquedos // 12\nrestantes = total_brinquedos % 12\nprint(caixas)\nprint(restantes)",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_b0d72510b7c3b904cbaea7f9c4125d19",
+        "name": "Input and output"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "total_brinquedos = int(input(\"Total number of toys produced: \"))\ncaixas = total_brinquedos // 12\nrestantes = total_brinquedos % 12\nprint(caixas)\nprint(restantes)",
+        "sourceLines": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "steps": [
+          "Connect the steps in the flowchart to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Packing toys in boxes of twelve",
+      "updated_at": "2026-11-13 20:47:40.715704+00"
+    },
+    {
+      "approved_at": "2026-11-13 20:47:40.715704+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "peso = float(input(\"Animal weight:\"))",
+            "sourceLines": [
+              1
+            ],
+            "steps": [
+              "input() reads the value entered as text.",
+              "float() converts it to a decimal number and stores it in peso for the calculation."
+            ],
+            "summary": "Read the animal's weight."
+          },
+          "hint": "Review this step: read the animal's weight.",
+          "id": "B",
+          "kind": "input",
+          "label": "Read the animal's weight",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "first_read",
+                "name": "input",
+                "targetBind": "peso",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "preco = 0.8 * peso ** 2 + 10 * peso + 45",
+            "sourceLines": [
+              2
+            ],
+            "steps": [
+              "The weight is squared using ** and substituted into the formula.",
+              "The result is stored in preco for the output."
+            ],
+            "summary": "Calculate the consultation cost."
+          },
+          "hint": "Review this step: calculate the consultation cost.",
+          "id": "C",
+          "kind": "process",
+          "label": "Calculate the consultation cost",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "targetBind": "preco",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print('Consultation cost:', preco)",
+            "sourceLines": [
+              3
+            ],
+            "steps": [
+              "The variable preco contains the calculated cost.",
+              "print() displays the required message and the calculated value."
+            ],
+            "summary": "Display the consultation cost."
+          },
+          "hint": "Review this step: display the consultation cost.",
+          "id": "D",
+          "kind": "output",
+          "label": "Display the consultation cost",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "type": "output_text",
+                "value": "Consultation cost:"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:47:40.715704+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "peso = float(input(\"Animal weight:\"))",
+              "sourceLines": [
+                1
+              ],
+              "steps": [
+                "input() reads the value entered as text.",
+                "float() converts it to a decimal number and stores it in peso for the calculation."
+              ],
+              "summary": "Read the animal's weight."
+            },
+            "hint": "Review this step: read the animal's weight.",
+            "id": "B",
+            "kind": "input",
+            "label": "Read the animal's weight",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "first_read",
+                  "name": "input",
+                  "targetBind": "peso",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "preco = 0.8 * peso ** 2 + 10 * peso + 45",
+              "sourceLines": [
+                2
+              ],
+              "steps": [
+                "The weight is squared using ** and substituted into the formula.",
+                "The result is stored in preco for the output."
+              ],
+              "summary": "Calculate the consultation cost."
+            },
+            "hint": "Review this step: calculate the consultation cost.",
+            "id": "C",
+            "kind": "process",
+            "label": "Calculate the consultation cost",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "targetBind": "preco",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print('Consultation cost:', preco)",
+              "sourceLines": [
+                3
+              ],
+              "steps": [
+                "The variable preco contains the calculated cost.",
+                "print() displays the required message and the calculated value."
+              ],
+              "summary": "Display the consultation cost."
+            },
+            "hint": "Review this step: display the consultation cost.",
+            "id": "D",
+            "kind": "output",
+            "label": "Display the consultation cost",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "type": "output_text",
+                  "value": "Consultation cost:"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the animal's weight\"/]\nC[\"Calculate the consultation cost\"]\nD[/\"Display the consultation cost\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+        "prompt": "At a veterinary clinic, the price of a consultation depends on the animal's weight in kilograms. The price is calculated as 0.8 * weight^2 + 10 * weight + 45.\n\nWrite a program that reads a real number representing the animal's weight, calculates the price, and displays exactly:\nConsultation cost: X\nwhere X is the calculated price.",
+        "referenceCode": "peso = float(input(\"Animal weight:\"))\npreco = 0.8 * peso ** 2 + 10 * peso + 45\nprint('Consultation cost:', preco)",
+        "subject": "Input and output",
+        "terminalExplanation": {
+          "finalAnswer": "peso = float(input(\"Animal weight:\"))\npreco = 0.8 * peso ** 2 + 10 * peso + 45\nprint('Consultation cost:', preco)",
+          "sourceLines": [
+            1,
+            2,
+            3
+          ],
+          "steps": [
+            "Connect the steps in the flowchart to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Veterinary consultation cost by weight",
+        "translationSourceId": "9d3b4f5b5aea40bfb0ef0b8974e70d6a"
+      },
+      "id": "en_9d3b4f5b5aea40bfb0ef0b8974e70d6a",
+      "language": "en",
+      "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read the animal's weight\"/]\nC[\"Calculate the consultation cost\"]\nD[/\"Display the consultation cost\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+      "prompt": "At a veterinary clinic, the price of a consultation depends on the animal's weight in kilograms. The price is calculated as 0.8 * weight^2 + 10 * weight + 45.\n\nWrite a program that reads a real number representing the animal's weight, calculates the price, and displays exactly:\nConsultation cost: X\nwhere X is the calculated price.",
+      "referenceCode": "peso = float(input(\"Animal weight:\"))\npreco = 0.8 * peso ** 2 + 10 * peso + 45\nprint('Consultation cost:', preco)",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_b0d72510b7c3b904cbaea7f9c4125d19",
+        "name": "Input and output"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "peso = float(input(\"Animal weight:\"))\npreco = 0.8 * peso ** 2 + 10 * peso + 45\nprint('Consultation cost:', preco)",
+        "sourceLines": [
+          1,
+          2,
+          3
+        ],
+        "steps": [
+          "Connect the steps in the flowchart to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Veterinary consultation cost by weight",
+      "updated_at": "2026-11-13 20:47:40.715704+00"
+    },
+    {
+      "approved_at": "2026-11-13 20:47:40.715704+00",
+      "blocks": [
+        {
+          "explanation": {
+            "pythonSnippet": "velocidade_vento = float(input(\"Enter wind speed in metres per second: \"))",
+            "sourceLines": [
+              5
+            ],
+            "steps": [
+              "input() reads the wind speed as text.",
+              "float() converts it to a decimal value stored in velocidade_vento."
+            ],
+            "summary": "Read wind speed."
+          },
+          "hint": "Review this step: read wind speed.",
+          "id": "B",
+          "kind": "input",
+          "label": "Read wind speed",
+          "mermaidNodeId": "B",
+          "rubric": {
+            "allOf": [
+              {
+                "bindOccurrence": "first_read",
+                "name": "input",
+                "targetBind": "velocidade_vento",
+                "type": "call"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "producao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c",
+            "sourceLines": [
+              7
+            ],
+            "steps": [
+              "The constants a, b and c define the given formula.",
+              "The program substitutes the wind speed and stores the result in producao_energia."
+            ],
+            "summary": "Calculate energy production."
+          },
+          "hint": "Review this step: calculate energy production.",
+          "id": "C",
+          "kind": "process",
+          "label": "Calculate energy production",
+          "mermaidNodeId": "C",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "first_read",
+                "bindOccurrence": "calculate_wind",
+                "targetBind": "producao_energia",
+                "type": "assignment"
+              }
+            ],
+            "anyOf": []
+          }
+        },
+        {
+          "explanation": {
+            "pythonSnippet": "print(\"Expected energy production:\", producao_energia)",
+            "sourceLines": [
+              9
+            ],
+            "steps": [
+              "The variable producao_energia contains the result.",
+              "print() displays the expected production with its label."
+            ],
+            "summary": "Display expected energy production."
+          },
+          "hint": "Review this step: display expected energy production.",
+          "id": "D",
+          "kind": "output",
+          "label": "Display expected energy production",
+          "mermaidNodeId": "D",
+          "rubric": {
+            "allOf": [
+              {
+                "afterRef": "calculate_wind",
+                "type": "output_text",
+                "value": "Expected energy production:"
+              }
+            ],
+            "anyOf": []
+          }
+        }
+      ],
+      "created_at": "2026-11-13 20:47:40.715704+00",
+      "examples": [],
+      "generationPayload": {
+        "blocks": [
+          {
+            "explanation": {
+              "pythonSnippet": "velocidade_vento = float(input(\"Enter wind speed in metres per second: \"))",
+              "sourceLines": [
+                5
+              ],
+              "steps": [
+                "input() reads the wind speed as text.",
+                "float() converts it to a decimal value stored in velocidade_vento."
+              ],
+              "summary": "Read wind speed."
+            },
+            "hint": "Review this step: read wind speed.",
+            "id": "B",
+            "kind": "input",
+            "label": "Read wind speed",
+            "mermaidNodeId": "B",
+            "rubric": {
+              "allOf": [
+                {
+                  "bindOccurrence": "first_read",
+                  "name": "input",
+                  "targetBind": "velocidade_vento",
+                  "type": "call"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "producao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c",
+              "sourceLines": [
+                7
+              ],
+              "steps": [
+                "The constants a, b and c define the given formula.",
+                "The program substitutes the wind speed and stores the result in producao_energia."
+              ],
+              "summary": "Calculate energy production."
+            },
+            "hint": "Review this step: calculate energy production.",
+            "id": "C",
+            "kind": "process",
+            "label": "Calculate energy production",
+            "mermaidNodeId": "C",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "first_read",
+                  "bindOccurrence": "calculate_wind",
+                  "targetBind": "producao_energia",
+                  "type": "assignment"
+                }
+              ],
+              "anyOf": []
+            }
+          },
+          {
+            "explanation": {
+              "pythonSnippet": "print(\"Expected energy production:\", producao_energia)",
+              "sourceLines": [
+                9
+              ],
+              "steps": [
+                "The variable producao_energia contains the result.",
+                "print() displays the expected production with its label."
+              ],
+              "summary": "Display expected energy production."
+            },
+            "hint": "Review this step: display expected energy production.",
+            "id": "D",
+            "kind": "output",
+            "label": "Display expected energy production",
+            "mermaidNodeId": "D",
+            "rubric": {
+              "allOf": [
+                {
+                  "afterRef": "calculate_wind",
+                  "type": "output_text",
+                  "value": "Expected energy production:"
+                }
+              ],
+              "anyOf": []
+            }
+          }
+        ],
+        "examples": [],
+        "language": "en",
+        "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read wind speed\"/]\nC[\"Calculate energy production\"]\nD[/\"Display expected energy production\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+        "prompt": "A company estimates a wind turbine's energy production using P(v) = a*v^2 + b*v + c, where v is wind speed in metres per second, a = 0.5, b = 3, and c = 0.\n\nWrite a program that reads the wind speed, calculates the expected energy production, and displays it with the label 'Expected energy production:'.",
+        "referenceCode": "a = 0.5\nb = 3\nc = 0\n\nvelocidade_vento = float(input(\"Enter wind speed in metres per second: \"))\n\nproducao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c\n\nprint(\"Expected energy production:\", producao_energia)",
+        "subject": "Input and output",
+        "terminalExplanation": {
+          "finalAnswer": "a = 0.5\nb = 3\nc = 0\n\nvelocidade_vento = float(input(\"Enter wind speed in metres per second: \"))\n\nproducao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c\n\nprint(\"Expected energy production:\", producao_energia)",
+          "sourceLines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "steps": [
+            "Connect the steps in the flowchart to the complete solution."
+          ],
+          "summary": "The solution is complete. Review the full reference code below."
+        },
+        "title": "Wind energy production",
+        "translationSourceId": "3ce1b740b1b649e08cf58b4539d2dbe9"
+      },
+      "id": "en_3ce1b740b1b649e08cf58b4539d2dbe9",
+      "language": "en",
+      "mermaid": "flowchart TD\nSTART([\"Start\"])\nB[/\"Read wind speed\"/]\nC[\"Calculate energy production\"]\nD[/\"Display expected energy production\"/]\nEND([\"End\"])\nSTART --> B\nB --> C\nC --> D\nD --> END",
+      "prompt": "A company estimates a wind turbine's energy production using P(v) = a*v^2 + b*v + c, where v is wind speed in metres per second, a = 0.5, b = 3, and c = 0.\n\nWrite a program that reads the wind speed, calculates the expected energy production, and displays it with the label 'Expected energy production:'.",
+      "referenceCode": "a = 0.5\nb = 3\nc = 0\n\nvelocidade_vento = float(input(\"Enter wind speed in metres per second: \"))\n\nproducao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c\n\nprint(\"Expected energy production:\", producao_energia)",
+      "status": "approved",
+      "subject": {
+        "id": "en_subject_b0d72510b7c3b904cbaea7f9c4125d19",
+        "name": "Input and output"
+      },
+      "terminalExplanation": {
+        "finalAnswer": "a = 0.5\nb = 3\nc = 0\n\nvelocidade_vento = float(input(\"Enter wind speed in metres per second: \"))\n\nproducao_energia = a * (velocidade_vento ** 2) + b * velocidade_vento + c\n\nprint(\"Expected energy production:\", producao_energia)",
+        "sourceLines": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "steps": [
+          "Connect the steps in the flowchart to the complete solution."
+        ],
+        "summary": "The solution is complete. Review the full reference code below."
+      },
+      "title": "Wind energy production",
+      "updated_at": "2026-11-13 20:47:40.715704+00"
+    }
+  ]
+}

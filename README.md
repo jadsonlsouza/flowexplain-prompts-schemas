@@ -16,4 +16,13 @@ The `user` messages are **synthetic examples** that show the structure of the pa
 
 The explanation schema is generated dynamically from the block IDs and number of reference-code lines. The included file is an example for two synthetic blocks and a two-line reference program; it is not a universal fixed schema. Application-side validation and normalization add checks beyond the response schemas.
 
+## Question Dataset
+
+The `questions/` directory contains a snapshot of the question catalog, separated by language:
+
+- [Portuguese questions](questions/portuguese.json): 140 questions.
+- [English questions](questions/english.json): 6 questions, including the translation of the Friday visit-count question.
+
+Each JSON file includes the language, export timestamp, total count and complete exercise records returned by the FlowExplain API, including the problem statement, reference code, Mermaid flowchart, blocks, rubrics, explanations and any examples. See [questions/README.md](questions/README.md) for the format and scope. This is a snapshot, not a live database connection.
+
 See [Backend AI Configuration](BACKEND_AI_CONFIGURATION.md) for the model, API parameters, generation sequence and reproducibility limitations.
